@@ -186,7 +186,8 @@ class Trainset:
 
         for u, u_ratings in iteritems(self.ur):
             for i, r in u_ratings:
-                yield u, i, r
+                if r > 1:
+                    yield u, i, r
 
     def build_testset(self):
         """Return a list of ratings that can be used as a testset in the

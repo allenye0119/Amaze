@@ -238,15 +238,23 @@ class SVD(AlgoBase):
 
                 # update biases
                 if self.biased:
-                    bu[u] += lr_bu * (err - reg_bu * bu[u])
-                    bi[i] += lr_bi * (err - reg_bi * bi[i])
+                    #  bu[u] += lr_bu * (err - reg_bu * bu[u])
+                    #  bi[i] += lr_bi * (err - reg_bi * bi[i])
+
+                    # MAE loss
+                    bu[u] += lr_bu * ((1 if err > 0 else (0 if err == 0 else -1)) - reg_bu * bu[u])
+                    bi[i] += lr_bi * ((1 if err > 0 else (0 if err == 0 else -1)) - reg_bi * bi[i])
 
                 # update factors
                 for f in range(self.n_factors):
                     puf = pu[u, f]
                     qif = qi[i, f]
-                    pu[u, f] += lr_pu * (err * qif - reg_pu * puf)
-                    qi[i, f] += lr_qi * (err * puf - reg_qi * qif)
+                    #  pu[u, f] += lr_pu * (err * qif - reg_pu * puf)
+                    #  qi[i, f] += lr_qi * (err * puf - reg_qi * qif)
+
+                    # MAE loss
+                    pu[u, f] += lr_pu * ((1 if err > 0 else (0 if err == 0 else -1)) * qif - reg_pu * puf)
+                    qi[i, f] += lr_qi * ((1 if err > 0 else (0 if err == 0 else -1)) * puf - reg_qi * qif)
 
         self.bu = bu
         self.bi = bi
@@ -464,19 +472,21 @@ class SVDpp(AlgoBase):
                 err = r - (global_mean + bu[u] + bi[i] + dot)
 
                 # update biases
-                bu[u] += lr_bu * (err - reg_bu * bu[u])
-                bi[i] += lr_bi * (err - reg_bi * bi[i])
+                #  bu[u] += lr_bu * (err - reg_bu * bu[u])
+                #  bi[i] += lr_bi * (err - reg_bi * bi[i])
+
+                # MAE loss
+                bu[u] += lr_bu * ((1 if err > 0 else (0 if err == 0 else -1)) - reg_bu * bu[u])
+                bi[i] += lr_bi * ((1 if err > 0 else (0 if err == 0 else -1)) - reg_bi * bi[i])
 
                 # update factors
                 for f in range(self.n_factors):
                     puf = pu[u, f]
                     qif = qi[i, f]
-                    pu[u, f] += lr_pu * (err * qif - reg_pu * puf)
-                    qi[i, f] += lr_qi * (err * (puf + u_impl_fdb[f]) -
-                                         reg_qi * qif)
+                    pu[u, f] += lr_pu * ((1 if err > 0 else (0 if err == 0 else -1)) * qif - reg_pu * puf)
+                    qi[i, f] += lr_qi * ((1 if err > 0 else (0 if err == 0 else -1)) * (puf + u_impl_fdb[f]) - reg_qi * qif)
                     for j in Iu:
-                        yj[j, f] += lr_yj * (err * qif / sqrt_Iu -
-                                             reg_yj * yj[j, f])
+                        yj[j, f] += lr_yj * ((1 if err > 0 else (0 if err == 0 else -1)) * qif / sqrt_Iu - reg_yj * yj[j, f])
 
         self.bu = bu
         self.bi = bi
