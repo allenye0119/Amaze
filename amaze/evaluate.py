@@ -1,4 +1,4 @@
-"""The :mod:`evaluate <surprise.evaluate>` module defines the :func:`evaluate`
+"""The :mod:`evaluate <amaze.evaluate>` module defines the :func:`evaluate`
 function and :class:`GridSearch` class """
 
 from __future__ import (absolute_import, division, print_function,
@@ -26,7 +26,7 @@ def evaluate(algo, data, measures=['rmse', 'mae'], with_dump=False,
     """
     .. warning::
         Deprecated since version 1.05.  Use :func:`cross_validate
-        <surprise.model_selection.validation.cross_validate>` instead. This
+        <amaze.model_selection.validation.cross_validate>` instead. This
         function will be removed in later versions.
 
     Evaluate the performance of the algorithm on given data.
@@ -38,19 +38,19 @@ def evaluate(algo, data, measures=['rmse', 'mae'], with_dump=False,
 
     Args:
         algo(:obj:`AlgoBase \
-            <surprise.prediction_algorithms.algo_base.AlgoBase>`):
+            <amaze.prediction_algorithms.algo_base.AlgoBase>`):
             The algorithm to evaluate.
-        data(:obj:`Dataset <surprise.dataset.Dataset>`): The dataset on which
+        data(:obj:`Dataset <amaze.dataset.Dataset>`): The dataset on which
             to evaluate the algorithm.
         measures(list of string): The performance measures to compute. Allowed
             names are function names as defined in the :mod:`accuracy
-            <surprise.accuracy>` module. Default is ``['rmse', 'mae']``.
+            <amaze.accuracy>` module. Default is ``['rmse', 'mae']``.
         with_dump(bool): If True, the predictions and the algorithm will be
             dumped for later further analysis at each fold (see :ref:`FAQ
             <serialize_an_algorithm>`). The file names will be set as:
             ``'<date>-<algorithm name>-<fold number>'``.  Default is ``False``.
         dump_dir(str): The directory where to dump to files. Default is
-            ``'~/.surprise_data/dumps/'``, or the folder specified by the
+            ``'~/.amaze_data/dumps/'``, or the folder specified by the
             ``'SURPRISE_DATA_FOLDER'`` environment variable (see :ref:`FAQ
             <data_folder>`).
         verbose(int): Level of verbosity. If 0, nothing is printed. If 1
@@ -119,7 +119,7 @@ class GridSearch:
     """
     .. warning::
         Deprecated since version 1.05. Use :func:`GridSearchCV
-        <surprise.model_selection.search.GridSearchCV>` instead. This
+        <amaze.model_selection.search.GridSearchCV>` instead. This
         class will be removed in later versions.
 
     The :class:`GridSearch` class, used to evaluate the performance of an
@@ -132,7 +132,7 @@ class GridSearch:
 
     Args:
         algo_class(:obj:`AlgoBase \
-            <surprise.prediction_algorithms.algo_base.AlgoBase>`): The class
+            <amaze.prediction_algorithms.algo_base.AlgoBase>`): The class
             object of the algorithm to evaluate.
         param_grid(dict): Dictionary with algorithm parameters as keys and
             list of values as keys. All combinations will be evaluated with
@@ -140,7 +140,7 @@ class GridSearch:
             special treatment, see :ref:`this note<grid_search_note>`.
         measures(list of string): The performance measures to compute. Allowed
             names are function names as defined in the :mod:`accuracy
-            <surprise.accuracy>` module.  Default is ``['rmse', 'mae']``.
+            <amaze.accuracy>` module.  Default is ``['rmse', 'mae']``.
         n_jobs(int): The maximum number of algorithm training in parallel.
 
             - If ``-1``, all CPUs are used.
@@ -237,7 +237,7 @@ class GridSearch:
         Class instance attributes can be accessed after the evaluate is done.
 
         Args:
-            data (:obj:`Dataset <surprise.dataset.Dataset>`): The dataset on
+            data (:obj:`Dataset <amaze.dataset.Dataset>`): The dataset on
                 which to evaluate the algorithm.
         """
 

@@ -237,7 +237,7 @@ class KNNBaseline(SymmetricAlgo):
 
     depending on the ``user_based`` field of the ``sim_options`` parameter. For
     the best predictions, use the :func:`pearson_baseline
-    <surprise.similarities.pearson_baseline>` similarity measure.
+    <amaze.similarities.pearson_baseline>` similarity measure.
 
     This algorithm corresponds to formula (3), section 2.2 of
     :cite:`Koren:2010`.
@@ -253,7 +253,7 @@ class KNNBaseline(SymmetricAlgo):
         sim_options(dict): A dictionary of options for the similarity
             measure. See :ref:`similarity_measures_configuration` for accepted
             options. It is recommended to use the :func:`pearson_baseline
-            <surprise.similarities.pearson_baseline>` similarity measure.
+            <amaze.similarities.pearson_baseline>` similarity measure.
 
         bsl_options(dict): A dictionary of options for the baseline estimates
             computation. See :ref:`baseline_estimates_configuration` for

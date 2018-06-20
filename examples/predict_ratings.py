@@ -6,8 +6,8 @@ built/specified) and how to use the predict() method.
 from __future__ import (absolute_import, division, print_function,
                         unicode_literals)
 
-from surprise import KNNBasic
-from surprise import Dataset
+from amaze import KNNBasic
+from amaze import Dataset
 
 # Load the movielens-100k dataset
 data = Dataset.load_builtin('ml-100k')

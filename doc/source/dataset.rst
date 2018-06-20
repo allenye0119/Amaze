@@ -3,6 +3,6 @@
 dataset module
 ===================
 
-.. automodule:: surprise.dataset
+.. automodule:: amaze.dataset
     :members:
     :exclude-members: BuiltinDataset, read_ratings, DatasetUserFolds,

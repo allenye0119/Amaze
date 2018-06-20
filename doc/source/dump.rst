@@ -3,5 +3,5 @@
 dump module
 ===============
 
-.. automodule:: surprise.dump
+.. automodule:: amaze.dump
     :members:

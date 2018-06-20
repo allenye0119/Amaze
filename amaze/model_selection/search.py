@@ -68,7 +68,7 @@ class BaseSearchCV(with_metaclass(ABCMeta)):
         combinations, over different splits given by the ``cv`` parameter.
 
         Args:
-            data (:obj:`Dataset <surprise.dataset.Dataset>`): The dataset on
+            data (:obj:`Dataset <amaze.dataset.Dataset>`): The dataset on
                 which to evaluate the algorithm, in parallel.
         """
 
@@ -181,7 +181,7 @@ class BaseSearchCV(with_metaclass(ABCMeta)):
     def test(self, testset, verbose=False):
         """Call ``test()`` on the estimator with the best found parameters
         (according the the ``refit`` parameter). See :meth:`AlgoBase.test()
-        <surprise.prediction_algorithms.algo_base.AlgoBase.test>`.
+        <amaze.prediction_algorithms.algo_base.AlgoBase.test>`.
 
         Only available if ``refit`` is not ``False``.
         """
@@ -194,7 +194,7 @@ class BaseSearchCV(with_metaclass(ABCMeta)):
     def predict(self, *args):
         """Call ``predict()`` on the estimator with the best found parameters
         (according the the ``refit`` parameter). See :meth:`AlgoBase.predict()
-        <surprise.prediction_algorithms.algo_base.AlgoBase.predict>`.
+        <amaze.prediction_algorithms.algo_base.AlgoBase.predict>`.
 
         Only available if ``refit`` is not ``False``.
         """
@@ -217,7 +217,7 @@ class GridSearchCV(BaseSearchCV):
 
     Args:
         algo_class(:obj:`AlgoBase \
-            <surprise.prediction_algorithms.algo_base.AlgoBase>`): The class
+            <amaze.prediction_algorithms.algo_base.AlgoBase>`): The class
             of the algorithm to evaluate.
         param_grid(dict): Dictionary with algorithm parameters as keys and
             list of values as keys. All combinations will be evaluated with
@@ -225,13 +225,13 @@ class GridSearchCV(BaseSearchCV):
             special treatment, see :ref:`this note<grid_search_note>`.
         measures(list of string): The performance measures to compute. Allowed
             names are function names as defined in the :mod:`accuracy
-            <surprise.accuracy>` module.  Default is ``['rmse', 'mae']``.
+            <amaze.accuracy>` module.  Default is ``['rmse', 'mae']``.
         cv(cross-validation iterator, int or ``None``): Determines how the
             ``data`` parameter will be split (i.e. how trainsets and testsets
             will be defined). If an int is passed, :class:`KFold
-            <surprise.model_selection.split.KFold>` is used with the
+            <amaze.model_selection.split.KFold>` is used with the
             appropriate ``n_splits`` parameter. If ``None``, :class:`KFold
-            <surprise.model_selection.split.KFold>` is used with
+            <amaze.model_selection.split.KFold>` is used with
             ``n_splits=5``.
         refit(bool or str): If ``True``, refit the algorithm on the whole
             dataset using the set of parameters that gave the best average
@@ -240,7 +240,7 @@ class GridSearchCV(BaseSearchCV):
             name). Then, you can use the ``test()`` and ``predict()`` methods.
             ``refit`` can only be used if the ``data`` parameter given to
             ``fit()`` hasn't been loaded with :meth:`load_from_folds()
-            <surprise.dataset.Dataset.load_from_folds>`. Default is ``False``.
+            <amaze.dataset.Dataset.load_from_folds>`. Default is ``False``.
         return_train_measures(bool): Whether to compute performance measures on
             the trainsets. If ``True``, the ``cv_results`` attribute will
             also contain measures for trainsets. Default is ``False``.
@@ -323,7 +323,7 @@ class RandomizedSearchCV(BaseSearchCV):
 
     Args:
         algo_class(:obj:`AlgoBase \
-            <surprise.prediction_algorithms.algo_base.AlgoBase>`): The class
+            <amaze.prediction_algorithms.algo_base.AlgoBase>`): The class
             of the algorithm to evaluate.
         param_distributions(dict): Dictionary with algorithm parameters as
             keys and distributions or lists of parameters to try. Distributions
@@ -334,13 +334,13 @@ class RandomizedSearchCV(BaseSearchCV):
             ``10``.
         measures(list of string): The performance measures to compute. Allowed
             names are function names as defined in the :mod:`accuracy
-            <surprise.accuracy>` module.  Default is ``['rmse', 'mae']``.
+            <amaze.accuracy>` module.  Default is ``['rmse', 'mae']``.
         cv(cross-validation iterator, int or ``None``): Determines how the
             ``data`` parameter will be split (i.e. how trainsets and testsets
             will be defined). If an int is passed, :class:`KFold
-            <surprise.model_selection.split.KFold>` is used with the
+            <amaze.model_selection.split.KFold>` is used with the
             appropriate ``n_splits`` parameter. If ``None``, :class:`KFold
-            <surprise.model_selection.split.KFold>` is used with
+            <amaze.model_selection.split.KFold>` is used with
             ``n_splits=5``.
         refit(bool or str): If ``True``, refit the algorithm on the whole
             dataset using the set of parameters that gave the best average
@@ -349,7 +349,7 @@ class RandomizedSearchCV(BaseSearchCV):
             name). Then, you can use the ``test()`` and ``predict()`` methods.
             ``refit`` can only be used if the ``data`` parameter given to
             ``fit()`` hasn't been loaded with :meth:`load_from_folds()
-            <surprise.dataset.Dataset.load_from_folds>`. Default is ``False``.
+            <amaze.dataset.Dataset.load_from_folds>`. Default is ``False``.
         return_train_measures(bool): Whether to compute performance measures on
             the trainsets. If ``True``, the ``cv_results`` attribute will
             also contain measures for trainsets. Default is ``False``.

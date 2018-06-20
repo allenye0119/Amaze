@@ -6,9 +6,9 @@ parameter combination of a given algorithm.
 from __future__ import (absolute_import, division, print_function,
                         unicode_literals)
 
-from surprise import SVD
-from surprise import Dataset
-from surprise.model_selection import GridSearchCV
+from amaze import SVD
+from amaze import Dataset
+from amaze.model_selection import GridSearchCV
 
 # Use movielens-100K
 data = Dataset.load_builtin('ml-100k')

@@ -6,9 +6,9 @@ from __future__ import (absolute_import, division, print_function,
                         unicode_literals)
 from collections import defaultdict
 
-from surprise import Dataset
-from surprise import SVD
-from surprise.model_selection import KFold
+from amaze import Dataset
+from amaze import SVD
+from amaze.model_selection import KFold
 
 
 def precision_recall_at_k(predictions, k=10, threshold=3.5):

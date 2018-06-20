@@ -1,8 +1,8 @@
 '''Testing renaming of train() into fit()'''
 import pytest
 
-from surprise import AlgoBase
-from surprise.model_selection import KFold
+from amaze import AlgoBase
+from amaze.model_selection import KFold
 
 
 def test_new_style_algo(small_ml):

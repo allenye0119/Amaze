@@ -9,8 +9,8 @@ from __future__ import (absolute_import, division, print_function,
                         unicode_literals)
 from collections import defaultdict
 
-from surprise import SVD
-from surprise import Dataset
+from amaze import SVD
+from amaze import Dataset
 
 
 def get_top_n(predictions, n=10):

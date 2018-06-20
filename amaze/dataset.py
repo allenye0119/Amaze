@@ -1,5 +1,5 @@
 """
-The :mod:`dataset <surprise.dataset>` module defines the :class:`Dataset` class
+The :mod:`dataset <amaze.dataset>` module defines the :class:`Dataset` class
 and other subclasses which are used for managing datasets.
 
 Users may use both *built-in* and user-defined datasets (see the
@@ -125,7 +125,7 @@ class Dataset:
 
         Args:
             file_path(:obj:`string`): The path to the file containing ratings.
-            reader(:obj:`Reader <surprise.reader.Reader>`): A reader to read
+            reader(:obj:`Reader <amaze.reader.Reader>`): A reader to read
                 the file.
             rating_scale(:obj:`tuple`): The rating scale used for
                 every rating, e.g. ``(1, 5)``.
@@ -152,7 +152,7 @@ class Dataset:
             folds_files(:obj:`iterable` of :obj:`tuples`): The list of the
                 folds. A fold is a tuple of the form ``(path_to_train_file,
                 path_to_test_file)``.
-            reader(:obj:`Reader <surprise.reader.Reader>`): A reader to read
+            reader(:obj:`Reader <amaze.reader.Reader>`): A reader to read
                 the files.
             rating_scale(:obj:`tuple`): The rating scale used for
                 every rating, e.g. ``(1, 5)``.
@@ -174,7 +174,7 @@ class Dataset:
             df(`Dataframe`): The dataframe containing the ratings. It must have
                 three columns, corresponding to the user (raw) ids, the item
                 (raw) ids, and the ratings, in this order.
-            reader(:obj:`Reader <surprise.reader.Reader>`): A reader to read
+            reader(:obj:`Reader <amaze.reader.Reader>`): A reader to read
                 the ratings. Only the ``rating_scale`` field needs to be
                 specified.
 
@@ -208,7 +208,7 @@ class Dataset:
             removed in later versions.
 
         Yields:
-            tuple: :class:`Trainset <surprise.Trainset>` and testset
+            tuple: :class:`Trainset <amaze.Trainset>` and testset
             of current fold.
         """
 
@@ -323,7 +323,7 @@ class DatasetAutoFolds(Dataset):
         <train_on_whole_trainset>`.
 
         Returns:
-            The :class:`Trainset <surprise.Trainset>`.
+            The :class:`Trainset <amaze.Trainset>`.
         """
 
         return self.construct_trainset(self.raw_ratings)

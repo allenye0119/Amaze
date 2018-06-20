@@ -12,17 +12,17 @@ class Trainset:
     """A trainset contains all useful data that constitutes a training set.
 
     It is used by the :meth:`fit()
-    <surprise.prediction_algorithms.algo_base.AlgoBase.fit>` method of every
+    <amaze.prediction_algorithms.algo_base.AlgoBase.fit>` method of every
     prediction algorithm. You should not try to built such an object on your
     own but rather use the :meth:`Dataset.folds()
-    <surprise.dataset.Dataset.folds>` method or the
+    <amaze.dataset.Dataset.folds>` method or the
     :meth:`DatasetAutoFolds.build_full_trainset()
-    <surprise.dataset.DatasetAutoFolds.build_full_trainset>` method.
+    <amaze.dataset.DatasetAutoFolds.build_full_trainset>` method.
 
-    Trainsets are different from :class:`Datasets <surprise.dataset.Dataset>`.
-    You can think of a :class:`Datasets <surprise.dataset.Dataset>` as the raw
+    Trainsets are different from :class:`Datasets <amaze.dataset.Dataset>`.
+    You can think of a :class:`Datasets <amaze.dataset.Dataset>` as the raw
     data, and Trainsets as higher-level data where useful methods are defined.
-    Also, a :class:`Datasets <surprise.dataset.Dataset>` may be comprised of
+    Also, a :class:`Datasets <amaze.dataset.Dataset>` may be comprised of
     multiple Trainsets (e.g. when doing cross validation).
 
 
@@ -190,12 +190,12 @@ class Trainset:
 
     def build_testset(self):
         """Return a list of ratings that can be used as a testset in the
-        :meth:`test() <surprise.prediction_algorithms.algo_base.AlgoBase.test>`
+        :meth:`test() <amaze.prediction_algorithms.algo_base.AlgoBase.test>`
         method.
 
         The ratings are all the ratings that are in the trainset, i.e. all the
         ratings returned by the :meth:`all_ratings()
-        <surprise.Trainset.all_ratings>` generator. This is useful in
+        <amaze.Trainset.all_ratings>` generator. This is useful in
         cases where you want to to test your algorithm on the trainset.
         """
 
@@ -204,7 +204,7 @@ class Trainset:
 
     def build_anti_testset(self, fill=None):
         """Return a list of ratings that can be used as a testset in the
-        :meth:`test() <surprise.prediction_algorithms.algo_base.AlgoBase.test>`
+        :meth:`test() <amaze.prediction_algorithms.algo_base.AlgoBase.test>`
         method.
 
         The ratings are all the ratings that are **not** in the trainset, i.e.
@@ -212,12 +212,12 @@ class Trainset:
         item :math:`i` is known, but the rating :math:`r_{ui}`  is not in the
         trainset. As :math:`r_{ui}` is unknown, it is either replaced by the
         :code:`fill` value or assumed to be equal to the mean of all ratings
-        :meth:`global_mean <surprise.Trainset.global_mean>`.
+        :meth:`global_mean <amaze.Trainset.global_mean>`.
 
         Args:
             fill(float): The value to fill unknown ratings. If :code:`None` the
                 global mean of all ratings :meth:`global_mean
-                <surprise.Trainset.global_mean>` will be used.
+                <amaze.Trainset.global_mean>` will be used.
 
         Returns:
             A list of tuples ``(uid, iid, fill)`` where ids are raw ids.

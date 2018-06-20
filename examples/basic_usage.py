@@ -1,14 +1,14 @@
 """
-This module describes the most basic usage of Surprise: you define a prediction
+This module describes the most basic usage of Amaze: you define a prediction
 algorithm, (down)load a dataset and run a cross-validation procedure.
 """
 
 from __future__ import (absolute_import, division, print_function,
                         unicode_literals)
 
-from surprise import SVD
-from surprise import Dataset
-from surprise.model_selection import cross_validate
+from amaze import SVD
+from amaze import Dataset
+from amaze.model_selection import cross_validate
 
 
 # Load the movielens-100k dataset (download it if needed),

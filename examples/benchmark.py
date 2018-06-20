@@ -12,56 +12,56 @@ import numpy as np
 import six
 from tabulate import tabulate
 
-from surprise import Dataset
-from surprise.model_selection import cross_validate
-from surprise.model_selection import KFold
-from surprise import NormalPredictor
-from surprise import BaselineOnly
-from surprise import KNNBasic
-from surprise import KNNWithMeans
-from surprise import KNNBaseline
-from surprise import SVD
-from surprise import SVDpp
-from surprise import NMF
-from surprise import SlopeOne
-from surprise import CoClustering
+from amaze import Dataset
+from amaze.model_selection import cross_validate
+from amaze.model_selection import KFold
+from amaze import NormalPredictor
+from amaze import BaselineOnly
+from amaze import KNNBasic
+from amaze import KNNWithMeans
+from amaze import KNNBaseline
+from amaze import SVD
+from amaze import SVDpp
+from amaze import NMF
+from amaze import SlopeOne
+from amaze import CoClustering
 
 # The algorithms to cross-validate
 classes = (SVD, SVDpp, NMF, SlopeOne, KNNBasic, KNNWithMeans, KNNBaseline,
            CoClustering, BaselineOnly, NormalPredictor)
 
 # ugly dict to map algo names and datasets to their markdown links in the table
-stable = 'http://surprise.readthedocs.io/en/stable/'
+stable = 'http://amaze.readthedocs.io/en/stable/'
 LINK = {'SVD': '[{}]({})'.format('SVD',
                                  stable +
-                                 'matrix_factorization.html#surprise.prediction_algorithms.matrix_factorization.SVD'),
+                                 'matrix_factorization.html#amaze.prediction_algorithms.matrix_factorization.SVD'),
         'SVDpp': '[{}]({})'.format('SVD++',
                                    stable +
-                                   'matrix_factorization.html#surprise.prediction_algorithms.matrix_factorization.SVDpp'),
+                                   'matrix_factorization.html#amaze.prediction_algorithms.matrix_factorization.SVDpp'),
         'NMF': '[{}]({})'.format('NMF',
                                  stable +
-                                 'matrix_factorization.html#surprise.prediction_algorithms.matrix_factorization.NMF'),
+                                 'matrix_factorization.html#amaze.prediction_algorithms.matrix_factorization.NMF'),
         'SlopeOne': '[{}]({})'.format('Slope One',
                                       stable +
-                                      'slope_one.html#surprise.prediction_algorithms.slope_one.SlopeOne'),
+                                      'slope_one.html#amaze.prediction_algorithms.slope_one.SlopeOne'),
         'KNNBasic': '[{}]({})'.format('k-NN',
                                       stable +
-                                      'knn_inspired.html#surprise.prediction_algorithms.knns.KNNBasic'),
+                                      'knn_inspired.html#amaze.prediction_algorithms.knns.KNNBasic'),
         'KNNWithMeans': '[{}]({})'.format('Centered k-NN',
                                           stable +
-                                          'knn_inspired.html#surprise.prediction_algorithms.knns.KNNWithMeans'),
+                                          'knn_inspired.html#amaze.prediction_algorithms.knns.KNNWithMeans'),
         'KNNBaseline': '[{}]({})'.format('k-NN Baseline',
                                          stable +
-                                         'knn_inspired.html#surprise.prediction_algorithms.knns.KNNBaseline'),
+                                         'knn_inspired.html#amaze.prediction_algorithms.knns.KNNBaseline'),
         'CoClustering': '[{}]({})'.format('Co-Clustering',
                                           stable +
-                                          'co_clustering.html#surprise.prediction_algorithms.co_clustering.CoClustering'),
+                                          'co_clustering.html#amaze.prediction_algorithms.co_clustering.CoClustering'),
         'BaselineOnly': '[{}]({})'.format('Baseline',
                                           stable +
-                                          'basic_algorithms.html#surprise.prediction_algorithms.baseline_only.BaselineOnly'),
+                                          'basic_algorithms.html#amaze.prediction_algorithms.baseline_only.BaselineOnly'),
         'NormalPredictor': '[{}]({})'.format('Random',
                                              stable +
-                                             'basic_algorithms.html#surprise.prediction_algorithms.random_pred.NormalPredictor'),
+                                             'basic_algorithms.html#amaze.prediction_algorithms.random_pred.NormalPredictor'),
         'ml-100k': '[{}]({})'.format('Movielens 100k',
                                      'http://grouplens.org/datasets/movielens/100k'),
         'ml-1m': '[{}]({})'.format('Movielens 1M',

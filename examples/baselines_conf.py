@@ -6,10 +6,10 @@ computation.
 from __future__ import (absolute_import, division, print_function,
                         unicode_literals)
 
-from surprise import BaselineOnly
-from surprise import KNNBasic
-from surprise import Dataset
-from surprise.model_selection import cross_validate
+from amaze import BaselineOnly
+from amaze import KNNBasic
+from amaze import Dataset
+from amaze.model_selection import cross_validate
 
 
 # Load the movielens-100k dataset.

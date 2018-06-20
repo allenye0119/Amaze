@@ -9,10 +9,10 @@ import random
 import pytest
 import numpy as np
 
-from surprise import SVD
-from surprise import KNNBaseline
-from surprise import evaluate
-from surprise import GridSearch
+from amaze import SVD
+from amaze import KNNBaseline
+from amaze import evaluate
+from amaze import GridSearch
 
 
 random.seed(0)

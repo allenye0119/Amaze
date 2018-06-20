@@ -8,9 +8,9 @@ import os
 
 import pytest
 
-from surprise import Reader
-from surprise import Dataset
-from surprise.model_selection import PredefinedKFold
+from amaze import Reader
+from amaze import Dataset
+from amaze.model_selection import PredefinedKFold
 
 
 @pytest.fixture

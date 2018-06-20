@@ -25,19 +25,19 @@ def cross_validate(algo, data, measures=['rmse', 'mae'], cv=None,
 
     Args:
         algo(:obj:`AlgoBase \
-            <surprise.prediction_algorithms.algo_base.AlgoBase>`):
+            <amaze.prediction_algorithms.algo_base.AlgoBase>`):
             The algorithm to evaluate.
-        data(:obj:`Dataset <surprise.dataset.Dataset>`): The dataset on which
+        data(:obj:`Dataset <amaze.dataset.Dataset>`): The dataset on which
             to evaluate the algorithm.
         measures(list of string): The performance measures to compute. Allowed
             names are function names as defined in the :mod:`accuracy
-            <surprise.accuracy>` module. Default is ``['rmse', 'mae']``.
+            <amaze.accuracy>` module. Default is ``['rmse', 'mae']``.
         cv(cross-validation iterator, int or ``None``): Determines how the
             ``data`` parameter will be split (i.e. how trainsets and testsets
             will be defined). If an int is passed, :class:`KFold
-            <surprise.model_selection.split.KFold>` is used with the
+            <amaze.model_selection.split.KFold>` is used with the
             appropriate ``n_splits`` parameter. If ``None``, :class:`KFold
-            <surprise.model_selection.split.KFold>` is used with
+            <amaze.model_selection.split.KFold>` is used with
             ``n_splits=5``.
         return_train_measures(bool): Whether to compute performance measures on
             the trainsets. Default is ``False``.
@@ -135,13 +135,13 @@ def fit_and_score(algo, trainset, testset, measures,
 
     Args:
         algo(:obj:`AlgoBase \
-            <surprise.prediction_algorithms.algo_base.AlgoBase>`):
+            <amaze.prediction_algorithms.algo_base.AlgoBase>`):
             The algorithm to use.
-        trainset(:obj:`Trainset <surprise.trainset.Trainset>`): The trainset.
+        trainset(:obj:`Trainset <amaze.trainset.Trainset>`): The trainset.
         trainset(:obj:`testset`): The testset.
         measures(list of string): The performance measures to compute. Allowed
             names are function names as defined in the :mod:`accuracy
-            <surprise.accuracy>` module.
+            <amaze.accuracy>` module.
         return_train_measures(bool): Whether to compute performance measures on
             the trainset. Default is ``False``.
 

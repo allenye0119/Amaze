@@ -8,7 +8,7 @@ import random
 
 import numpy as np
 
-import surprise.similarities as sims
+import amaze.similarities as sims
 
 n_x = 8
 yr_global = {

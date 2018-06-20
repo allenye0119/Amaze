@@ -90,7 +90,7 @@ API Changes
 
 * param_grid for GridSearch is now slightly different for dict parameters (see
   note on [the
-  docs](http://surprise.readthedocs.io/en/stable/getting_started.html#tune-algorithm-parameters-with-gridsearch)).
+  docs](http://amaze.readthedocs.io/en/stable/getting_started.html#tune-algorithm-parameters-with-gridsearch)).
 
 VERSION 1.0.3
 =============
@@ -124,7 +124,7 @@ API Changes
   (optional as well). The algorithm is now a real algorithm object. The
   trainset is not dumped anymore as it is already part of the algorithm anyway.
 * The dump() method is now part of the dump namespace, and not the global
-  namespace (so it is accessed by surprise.dump.dump)
+  namespace (so it is accessed by amaze.dump.dump)
 
 VERSION 1.0.2
 =============
@@ -154,7 +154,7 @@ Enhancements
 Other
 -----
 
-* Surprise is now a scikit!
+* Amaze is now a scikit!
 * Changed license to BSD
 * Six is now a dependency
 
@@ -163,7 +163,7 @@ VERSION 1.0.0
 
 Date: 22/11/16
 
-* Changed name from recsys to surprise
+* Changed name from recsys to amaze
 * Improved printing of accuracy measures.
 * Added version number.
 * Rewrote the the __main__.py

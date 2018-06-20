@@ -10,23 +10,23 @@ import os
 
 import numpy as np
 
-from surprise.prediction_algorithms import NormalPredictor
-from surprise.prediction_algorithms import BaselineOnly
-from surprise.prediction_algorithms import KNNBasic
-from surprise.prediction_algorithms import KNNBaseline
-from surprise.prediction_algorithms import KNNWithMeans
-from surprise.prediction_algorithms import SVD
-from surprise.prediction_algorithms import SVDpp
-from surprise.prediction_algorithms import NMF
-from surprise.prediction_algorithms import SlopeOne
-from surprise.prediction_algorithms import CoClustering
-import surprise.dataset as dataset
-from surprise.dataset import Dataset
-from surprise.builtin_datasets import get_dataset_dir
-from surprise.model_selection import cross_validate
-from surprise.model_selection import KFold
-from surprise.model_selection import PredefinedKFold
-from surprise import __version__
+from amaze.prediction_algorithms import NormalPredictor
+from amaze.prediction_algorithms import BaselineOnly
+from amaze.prediction_algorithms import KNNBasic
+from amaze.prediction_algorithms import KNNBaseline
+from amaze.prediction_algorithms import KNNWithMeans
+from amaze.prediction_algorithms import SVD
+from amaze.prediction_algorithms import SVDpp
+from amaze.prediction_algorithms import NMF
+from amaze.prediction_algorithms import SlopeOne
+from amaze.prediction_algorithms import CoClustering
+import amaze.dataset as dataset
+from amaze.dataset import Dataset
+from amaze.builtin_datasets import get_dataset_dir
+from amaze.model_selection import cross_validate
+from amaze.model_selection import KFold
+from amaze.model_selection import PredefinedKFold
+from amaze import __version__
 
 
 def main():
@@ -47,9 +47,9 @@ def main():
         'or a custom dataset, and you can choose to automatically split the ' +
         'dataset into folds, or manually specify train and test files. ' +
         'Please refer to the documentation page ' +
-        '(http://surprise.readthedocs.io/) for more details.',
+        '(http://amaze.readthedocs.io/) for more details.',
         epilog="""Example:\n
-        surprise -algo SVD -params "{'n_epochs': 5, 'verbose': True}"
+        amaze -algo SVD -params "{'n_epochs': 5, 'verbose': True}"
         -load-builtin ml-100k -n-folds 3""")
 
     algo_choices = {

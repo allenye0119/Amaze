@@ -9,21 +9,21 @@ import os
 import pytest
 from six import iteritems
 
-from surprise import NormalPredictor
-from surprise import BaselineOnly
-from surprise import KNNBasic
-from surprise import KNNWithMeans
-from surprise import KNNBaseline
-from surprise import SVD
-from surprise import SVDpp
-from surprise import NMF
-from surprise import SlopeOne
-from surprise import CoClustering
-from surprise import Dataset
-from surprise import Reader
-from surprise import KNNWithZScore
-from surprise.model_selection import train_test_split
-from surprise import accuracy
+from amaze import NormalPredictor
+from amaze import BaselineOnly
+from amaze import KNNBasic
+from amaze import KNNWithMeans
+from amaze import KNNBaseline
+from amaze import SVD
+from amaze import SVDpp
+from amaze import NMF
+from amaze import SlopeOne
+from amaze import CoClustering
+from amaze import Dataset
+from amaze import Reader
+from amaze import KNNWithZScore
+from amaze.model_selection import train_test_split
+from amaze import accuracy
 
 
 def test_unknown_user_or_item(toy_data):

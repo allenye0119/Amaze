@@ -4,8 +4,8 @@ from __future__ import (absolute_import, division, print_function,
                         unicode_literals)
 import pytest
 
-from surprise import BaselineOnly
-from surprise.model_selection import cross_validate
+from amaze import BaselineOnly
+from amaze.model_selection import cross_validate
 
 
 def test_method_field(u1_ml100k, pkf):

@@ -1,5 +1,5 @@
 """
-The :mod:`surprise.prediction_algorithms.algo_base` module defines the base
+The :mod:`amaze.prediction_algorithms.algo_base` module defines the base
 class :class:`AlgoBase` from which every single prediction algorithm has to
 inherit.
 """
@@ -63,9 +63,9 @@ class AlgoBase(object):
         structures and set the self.trainset attribute.
 
         Args:
-            trainset(:obj:`Trainset <surprise.Trainset>`) : A training
+            trainset(:obj:`Trainset <amaze.Trainset>`) : A training
                 set, as returned by the :meth:`folds
-                <surprise.dataset.Dataset.folds>` method.
+                <amaze.dataset.Dataset.folds>` method.
 
         Returns:
             self
@@ -103,7 +103,7 @@ class AlgoBase(object):
         ``estimate`` method which is defined in every derived class. If the
         prediction is impossible (e.g. because the user and/or the item is
         unkown), the prediction is set according to :meth:`default_prediction()
-        <surprise.prediction_algorithms.algo_base.AlgoBase.default_prediction>`.
+        <amaze.prediction_algorithms.algo_base.AlgoBase.default_prediction>`.
 
         Args:
             uid: (Raw) id of the user. See :ref:`this note<raw_inner_note>`.
@@ -120,7 +120,7 @@ class AlgoBase(object):
 
         Returns:
             A :obj:`Prediction\
-            <surprise.prediction_algorithms.predictions.Prediction>` object
+            <amaze.prediction_algorithms.predictions.Prediction>` object
             containing:
 
             - The (raw) user id ``uid``.
@@ -172,7 +172,7 @@ class AlgoBase(object):
     def default_prediction(self):
         '''Used when the ``PredictionImpossible`` exception is raised during a
         call to :meth:`predict()
-        <surprise.prediction_algorithms.algo_base.AlgoBase.predict>`. By
+        <amaze.prediction_algorithms.algo_base.AlgoBase.predict>`. By
         default, return the global mean of all ratings (can be overridden in
         child classes).
 
@@ -189,14 +189,14 @@ class AlgoBase(object):
         Args:
             testset: A test set, as returned by a :ref:`cross-validation
                 itertor<use_cross_validation_iterators>` or by the
-                :meth:`build_testset() <surprise.Trainset.build_testset>`
+                :meth:`build_testset() <amaze.Trainset.build_testset>`
                 method.
             verbose(bool): Whether to print details for each predictions.
                 Default is False.
 
         Returns:
             A list of :class:`Prediction\
-            <surprise.prediction_algorithms.predictions.Prediction>` objects
+            <amaze.prediction_algorithms.predictions.Prediction>` objects
             that contains all the estimated ratings.
         """
 
@@ -216,9 +216,9 @@ class AlgoBase(object):
         :ref:`baseline_estimates_configuration`).
 
         This method is only relevant for algorithms using :func:`Pearson
-        baseline similarty<surprise.similarities.pearson_baseline>` or the
+        baseline similarty<amaze.similarities.pearson_baseline>` or the
         :class:`BaselineOnly
-        <surprise.prediction_algorithms.baseline_only.BaselineOnly>` algorithm.
+        <amaze.prediction_algorithms.baseline_only.BaselineOnly>` algorithm.
 
         Args:
             verbose(bool) : if ``True``, print status message. Default is

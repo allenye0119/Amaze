@@ -10,14 +10,14 @@ from __future__ import (absolute_import, division, print_function,
                         unicode_literals)
 import os
 
-from surprise import SVD
-from surprise import Dataset
-from surprise import Reader
-from surprise import accuracy
-from surprise.model_selection import PredefinedKFold
+from amaze import SVD
+from amaze import Dataset
+from amaze import Reader
+from amaze import accuracy
+from amaze.model_selection import PredefinedKFold
 
 # path to dataset folder
-files_dir = os.path.expanduser('~/.surprise_data/ml-100k/ml-100k/')
+files_dir = os.path.expanduser('~/.amaze_data/ml-100k/ml-100k/')
 
 # This time, we'll use the built-in reader.
 reader = Reader('ml-100k')

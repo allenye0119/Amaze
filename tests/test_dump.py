@@ -5,9 +5,9 @@ from __future__ import (absolute_import, division, print_function,
 import tempfile
 import random
 
-from surprise import BaselineOnly
-from surprise import dump
-from surprise.model_selection import PredefinedKFold
+from amaze import BaselineOnly
+from amaze import dump
+from amaze.model_selection import PredefinedKFold
 
 
 def test_dump(u1_ml100k):

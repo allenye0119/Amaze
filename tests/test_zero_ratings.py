@@ -21,7 +21,7 @@ from __future__ import (absolute_import, division, print_function,
 
 import pandas as pd
 
-from surprise import Dataset
+from amaze import Dataset
 
 
 def test_zero_rating_canary():

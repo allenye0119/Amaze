@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 #
-# Surprise documentation build configuration file, created by
+# Amaze documentation build configuration file, created by
 # sphinx-quickstart on Tue Dec 29 20:08:18 2015.
 #
 # This file is execfile()d with the current directory set to its
@@ -58,7 +58,7 @@ source_suffix = '.rst'
 master_doc = 'index'
 
 # General information about the project.
-project = 'Surprise'
+project = 'Amaze'
 copyright = '2015, Nicolas Hug'
 author = 'Nicolas Hug'
 
@@ -217,7 +217,7 @@ html_theme_path = [sphinx_rtd_theme.get_html_theme_path()]
 #html_search_scorer = 'scorer.js'
 
 # Output file base name for HTML help builder.
-htmlhelp_basename = 'Surprisedoc'
+htmlhelp_basename = 'Amazedoc'
 
 # -- Options for LaTeX output ---------------------------------------------
 
@@ -239,7 +239,7 @@ latex_elements = {
 # (source start file, target name, title,
 #  author, documentclass [howto, manual, or own class]).
 latex_documents = [
-  (master_doc, 'Surprise.tex', 'Surprise Documentation',
+  (master_doc, 'Amaze.tex', 'Amaze Documentation',
    'Nicolas Hug', 'manual'),
 ]
 
@@ -269,7 +269,7 @@ latex_documents = [
 # One entry per manual page. List of tuples
 # (source start file, name, description, authors, manual section).
 man_pages = [
-    (master_doc, 'surprise', 'Surprise Documentation',
+    (master_doc, 'amaze', 'Amaze Documentation',
      [author], 1)
 ]
 
@@ -283,8 +283,8 @@ man_pages = [
 # (source start file, target name, title, author,
 #  dir menu entry, description, category)
 texinfo_documents = [
-  (master_doc, 'Surprise', 'Surprise Documentation',
-   author, 'Surprise', 'One line description of project.',
+  (master_doc, 'Amaze', 'Amaze Documentation',
+   author, 'Amaze', 'One line description of project.',
    'Miscellaneous'),
 ]
 

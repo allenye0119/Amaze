@@ -1,5 +1,5 @@
 """
-The :mod:`surprise.accuracy` module provides with tools for computing accuracy
+The :mod:`amaze.accuracy` module provides with tools for computing accuracy
 metrics on a set of predictions.
 
 Available accuracy metrics:
@@ -28,9 +28,9 @@ def rmse(predictions, verbose=True):
 
     Args:
         predictions (:obj:`list` of :obj:`Prediction\
-            <surprise.prediction_algorithms.predictions.Prediction>`):
+            <amaze.prediction_algorithms.predictions.Prediction>`):
             A list of predictions, as returned by the :meth:`test()
-            <surprise.prediction_algorithms.algo_base.AlgoBase.test>` method.
+            <amaze.prediction_algorithms.algo_base.AlgoBase.test>` method.
         verbose: If True, will print computed value. Default is ``True``.
 
 
@@ -63,9 +63,9 @@ def mae(predictions, verbose=True):
 
     Args:
         predictions (:obj:`list` of :obj:`Prediction\
-            <surprise.prediction_algorithms.predictions.Prediction>`):
+            <amaze.prediction_algorithms.predictions.Prediction>`):
             A list of predictions, as returned by the :meth:`test()
-            <surprise.prediction_algorithms.algo_base.AlgoBase.test>` method.
+            <amaze.prediction_algorithms.algo_base.AlgoBase.test>` method.
         verbose: If True, will print computed value. Default is ``True``.
 
 
@@ -97,9 +97,9 @@ def fcp(predictions, verbose=True):
 
     Args:
         predictions (:obj:`list` of :obj:`Prediction\
-            <surprise.prediction_algorithms.predictions.Prediction>`):
+            <amaze.prediction_algorithms.predictions.Prediction>`):
             A list of predictions, as returned by the :meth:`test()
-            <surprise.prediction_algorithms.algo_base.AlgoBase.test>` method.
+            <amaze.prediction_algorithms.algo_base.AlgoBase.test>` method.
         verbose: If True, will print computed value. Default is ``True``.
 
 

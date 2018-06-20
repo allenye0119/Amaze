@@ -8,10 +8,10 @@ from itertools import combinations
 
 import pytest
 
-from surprise import KNNBasic
-from surprise import KNNWithMeans
-from surprise import KNNBaseline
-from surprise.model_selection import cross_validate
+from amaze import KNNBasic
+from amaze import KNNWithMeans
+from amaze import KNNBaseline
+from amaze.model_selection import cross_validate
 
 
 def test_name_field(u1_ml100k, pkf):

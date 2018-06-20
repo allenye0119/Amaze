@@ -9,9 +9,9 @@ from __future__ import (absolute_import, division, print_function,
                         unicode_literals)
 import io  # needed because of weird encoding of u.item file
 
-from surprise import KNNBaseline
-from surprise import Dataset
-from surprise import get_dataset_dir
+from amaze import KNNBaseline
+from amaze import Dataset
+from amaze import get_dataset_dir
 
 
 def read_item_names():

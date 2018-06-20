@@ -18,7 +18,7 @@ class Reader():
     arbitrarily defined (see below).  brackets indicate that the timestamp
     field is optional.
 
-    For each built-in dataset, Surprise also provides predefined readers which
+    For each built-in dataset, Amaze also provides predefined readers which
     are useful if you want to use a custom dataset that has the same format as
     a built-in one (see the ``name`` parameter).
 
@@ -41,10 +41,10 @@ class Reader():
                 deprecated and will not be supported in future versions.
                 ``rating_scale`` should now be specified when creating the
                 dataset, e.g. using :meth:`load_from_folds
-                <surprise.dataset.Dataset.load_from_folds>`,
+                <amaze.dataset.Dataset.load_from_folds>`,
                 :meth:`load_from_file
-                <surprise.dataset.Dataset.load_from_file>`, or
-                :meth:`load_from_df <surprise.dataset.Dataset.load_from_df>`.
+                <amaze.dataset.Dataset.load_from_file>`, or
+                :meth:`load_from_df <amaze.dataset.Dataset.load_from_df>`.
 
         skip_lines(:obj:`int`, optional): Number of lines to skip at the
             beginning of the file. Default is ``0``.

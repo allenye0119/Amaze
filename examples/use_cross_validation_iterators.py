@@ -5,10 +5,10 @@ This module descibes how to use cross-validation iterators.
 from __future__ import (absolute_import, division, print_function,
                         unicode_literals)
 
-from surprise import SVD
-from surprise import Dataset
-from surprise import accuracy
-from surprise.model_selection import KFold
+from amaze import SVD
+from amaze import Dataset
+from amaze import accuracy
+from amaze.model_selection import KFold
 
 # Load the movielens-100k dataset
 data = Dataset.load_builtin('ml-100k')

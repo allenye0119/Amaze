@@ -7,9 +7,9 @@ from __future__ import (absolute_import, division, print_function,
 
 import pandas as pd
 
-from surprise import NormalPredictor
-from surprise import Dataset
-from surprise.model_selection import cross_validate
+from amaze import NormalPredictor
+from amaze import Dataset
+from amaze.model_selection import cross_validate
 
 
 # Creation of the dataframe. Column names are irrelevant.

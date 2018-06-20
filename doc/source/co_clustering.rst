@@ -3,6 +3,6 @@
 Co-clustering
 -------------
 
-.. autoclass:: surprise.prediction_algorithms.co_clustering.CoClustering
+.. autoclass:: amaze.prediction_algorithms.co_clustering.CoClustering
     :show-inheritance:
 

@@ -13,12 +13,12 @@ from os.path import join
 
 def get_dataset_dir():
     '''Return folder where downloaded datasets and other data are stored.
-    Default folder is ~/.surprise_data/, but it can also be set by the
+    Default folder is ~/.amaze_data/, but it can also be set by the
     environment variable ``SURPRISE_DATA_FOLDER``.
     '''
 
     folder = os.environ.get('SURPRISE_DATA_FOLDER', os.path.expanduser('~') +
-                            '/.surprise_data/')
+                            '/.amaze_data/')
     if not os.path.exists(folder):
         os.makedirs(folder)
 

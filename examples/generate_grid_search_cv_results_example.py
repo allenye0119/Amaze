@@ -9,9 +9,9 @@ from __future__ import (absolute_import, division, print_function,
 from tabulate import tabulate
 from six import iteritems
 
-from surprise import SVD
-from surprise import Dataset
-from surprise.model_selection import GridSearchCV
+from amaze import SVD
+from amaze import Dataset
+from amaze.model_selection import GridSearchCV
 
 # Use movielens-100K
 data = Dataset.load_builtin('ml-100k')

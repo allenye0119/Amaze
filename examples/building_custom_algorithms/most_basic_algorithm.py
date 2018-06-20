@@ -6,9 +6,9 @@ to User Guide for more insight.
 from __future__ import (absolute_import, division, print_function,
                         unicode_literals)
 
-from surprise import AlgoBase
-from surprise import Dataset
-from surprise.model_selection import cross_validate
+from amaze import AlgoBase
+from amaze import Dataset
+from amaze.model_selection import cross_validate
 
 
 class MyOwnAlgorithm(AlgoBase):

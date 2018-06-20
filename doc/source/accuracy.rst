@@ -4,7 +4,7 @@ accuracy module
 ===================
 
 
-.. automodule:: surprise.accuracy
+.. automodule:: amaze.accuracy
     :members:
     :undoc-members:
     :show-inheritance:

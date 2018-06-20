@@ -18,7 +18,7 @@ First upload to test pypi:
 
 Check that install works on testpypi, then upload to pypi and check again.
 to install from testpypi:
-pip install --index-url https://test.pypi.org/simple/ --extra-index-url https://pypi.org/simple scikit-surprise  # noqa
+pip install --index-url https://test.pypi.org/simple/ --extra-index-url https://pypi.org/simple scikit-amaze  # noqa
 
 push new release tag on github (commit last changes first if needed):
     git tag vX.Y.Z
@@ -33,7 +33,7 @@ In the mean time, upload to conda:
     - Push changes, Then open pull request on conda-forge feedstock and merge it
       when all checks are OK. Access the conda-forge feedstock it by the link on
       GitHub 'forked from blah blah'.
-    - Check on https://anaconda.org/conda-forge/scikit-surprise that new
+    - Check on https://anaconda.org/conda-forge/scikit-amaze that new
       version is available for all platforms.
 
 Then, maybe, celebrate.
@@ -74,22 +74,22 @@ ext = '.pyx' if USE_CYTHON else '.c'
 
 extensions = [
     Extension(
-        'surprise.similarities',
-        ['surprise/similarities' + ext],
+        'amaze.similarities',
+        ['amaze/similarities' + ext],
         include_dirs=[np.get_include()]
     ),
     Extension(
-        'surprise.prediction_algorithms.matrix_factorization',
-        ['surprise/prediction_algorithms/matrix_factorization' + ext],
+        'amaze.prediction_algorithms.matrix_factorization',
+        ['amaze/prediction_algorithms/matrix_factorization' + ext],
         include_dirs=[np.get_include()]),
-    Extension('surprise.prediction_algorithms.optimize_baselines',
-              ['surprise/prediction_algorithms/optimize_baselines' + ext],
+    Extension('amaze.prediction_algorithms.optimize_baselines',
+              ['amaze/prediction_algorithms/optimize_baselines' + ext],
               include_dirs=[np.get_include()]),
-    Extension('surprise.prediction_algorithms.slope_one',
-              ['surprise/prediction_algorithms/slope_one' + ext],
+    Extension('amaze.prediction_algorithms.slope_one',
+              ['amaze/prediction_algorithms/slope_one' + ext],
               include_dirs=[np.get_include()]),
-    Extension('surprise.prediction_algorithms.co_clustering',
-              ['surprise/prediction_algorithms/co_clustering' + ext],
+    Extension('amaze.prediction_algorithms.co_clustering',
+              ['amaze/prediction_algorithms/co_clustering' + ext],
               include_dirs=[np.get_include()]),
 ]
 
@@ -100,7 +100,7 @@ else:
     ext_modules = extensions
 
 setup(
-    name='scikit-surprise',
+    name='scikit-amaze',
     author='Nicolas Hug',
     author_email='contact@nicolas-hug.com',
 
@@ -109,7 +109,7 @@ setup(
     long_description_content_type='text/markdown',
 
     version=__version__,
-    url='http://surpriselib.com',
+    url='http://amazelib.com',
 
     license='GPLv3+',
     classifiers=[
@@ -132,5 +132,5 @@ setup(
     dependency_links=dependency_links,
 
     entry_points={'console_scripts':
-                  ['surprise = surprise.__main__:main']},
+                  ['amaze = amaze.__main__:main']},
 )

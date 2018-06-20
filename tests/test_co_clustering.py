@@ -5,8 +5,8 @@ Module for testing the CoClustering algorithm.
 from __future__ import (absolute_import, division, print_function,
                         unicode_literals)
 
-from surprise import CoClustering
-from surprise.model_selection import cross_validate
+from amaze import CoClustering
+from amaze.model_selection import cross_validate
 
 
 def test_CoClustering_parameters(u1_ml100k, pkf):

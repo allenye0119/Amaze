@@ -1,5 +1,5 @@
 '''
-The :mod:`model_selection.split<surprise.model_selection.split>` module
+The :mod:`model_selection.split<amaze.model_selection.split>` module
 contains various cross-validation iterators. Design and tools are inspired from
 the mighty scikit learn.
 
@@ -85,7 +85,7 @@ class KFold():
         '''Generator function to iterate over trainsets and testsets.
 
         Args:
-            data(:obj:`Dataset<surprise.dataset.Dataset>`): The data containing
+            data(:obj:`Dataset<amaze.dataset.Dataset>`): The data containing
                 ratings that will be devided into trainsets and testsets.
 
         Yields:
@@ -158,7 +158,7 @@ class RepeatedKFold():
         '''Generator function to iterate over trainsets and testsets.
 
         Args:
-            data(:obj:`Dataset<surprise.dataset.Dataset>`): The data containing
+            data(:obj:`Dataset<amaze.dataset.Dataset>`): The data containing
                 ratings that will be devided into trainsets and testsets.
 
         Yields:
@@ -265,7 +265,7 @@ class ShuffleSplit():
         '''Generator function to iterate over trainsets and testsets.
 
         Args:
-            data(:obj:`Dataset<surprise.dataset.Dataset>`): The data containing
+            data(:obj:`Dataset<amaze.dataset.Dataset>`): The data containing
                 ratings that will be devided into trainsets and testsets.
 
         Yields:
@@ -307,7 +307,7 @@ def train_test_split(data, test_size=.2, train_size=None, random_state=None,
     Note: this function cannot be used as a cross-validation iterator.
 
     Args:
-        data(:obj:`Dataset <surprise.dataset.Dataset>`): The dataset to split
+        data(:obj:`Dataset <amaze.dataset.Dataset>`): The dataset to split
             into trainset and testset.
         test_size(float or int ``None``): If float, it represents the
             proportion of ratings to include in the testset. If int,
@@ -371,7 +371,7 @@ class LeaveOneOut():
         '''Generator function to iterate over trainsets and testsets.
 
         Args:
-            data(:obj:`Dataset<surprise.dataset.Dataset>`): The data containing
+            data(:obj:`Dataset<amaze.dataset.Dataset>`): The data containing
                 ratings that will be devided into trainsets and testsets.
 
         Yields:
@@ -411,7 +411,7 @@ class LeaveOneOut():
 
 class PredefinedKFold():
     '''A cross-validation iterator to when a dataset has been loaded with the
-    :meth:`load_from_folds <surprise.dataset.Dataset.load_from_folds>`
+    :meth:`load_from_folds <amaze.dataset.Dataset.load_from_folds>`
     method.
 
     See an example in the :ref:`User Guide <load_from_folds_example>`.
@@ -421,7 +421,7 @@ class PredefinedKFold():
         '''Generator function to iterate over trainsets and testsets.
 
         Args:
-            data(:obj:`Dataset<surprise.dataset.Dataset>`): The data containing
+            data(:obj:`Dataset<amaze.dataset.Dataset>`): The data containing
                 ratings that will be devided into trainsets and testsets.
 
         Yields:

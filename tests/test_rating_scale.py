@@ -14,8 +14,8 @@ import os
 import pytest
 import pandas as pd
 
-from surprise import Reader
-from surprise import Dataset
+from amaze import Reader
+from amaze import Dataset
 
 
 def test_deprecated_way():

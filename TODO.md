@@ -55,7 +55,7 @@ Done:
 * Make the r_ui param of predict optional
 * Put some PredictionImpossible messages in every algo
 * allow a 'clip' option to the predict method? Also, describe r_min and r_max
-* configure entrypoints to use surprise directly from command line
+* configure entrypoints to use amaze directly from command line
 * Allow a 'biased' option in the SVD algo. If true, use baselines, if False,
   don't. It should be pretty easy to do.
 * create option in __main__ to clean the .recsys directory. Actually, the

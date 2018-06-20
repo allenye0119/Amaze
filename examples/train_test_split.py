@@ -5,10 +5,10 @@ This module describes how to use the train_test_split() function.
 from __future__ import (absolute_import, division, print_function,
                         unicode_literals)
 
-from surprise import SVD
-from surprise import Dataset
-from surprise import accuracy
-from surprise.model_selection import train_test_split
+from amaze import SVD
+from amaze import Dataset
+from amaze import accuracy
+from amaze.model_selection import train_test_split
 
 # Load the movielens-100k dataset (download it if needed),
 data = Dataset.load_builtin('ml-100k')
