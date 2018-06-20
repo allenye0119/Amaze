@@ -186,7 +186,7 @@ class Trainset:
 
         for u, u_ratings in iteritems(self.ur):
             for i, r in u_ratings:
-                if r > 1:
+                if r > 0:
                     yield u, i, r
 
     def build_testset(self):
