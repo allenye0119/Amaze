@@ -125,12 +125,13 @@ class SVD(AlgoBase):
             exists if ``fit()`` has been called)
     """
 
-    def __init__(self, n_factors=100, n_epochs=20, biased=True, init_mean=0,
+    def __init__(self, loss='MAE', n_factors=100, n_epochs=20, biased=True, init_mean=0,
                  init_std_dev=.1, lr_all=.005,
                  reg_all=.02, lr_bu=None, lr_bi=None, lr_pu=None, lr_qi=None,
                  reg_bu=None, reg_bi=None, reg_pu=None, reg_qi=None,
                  random_state=None, verbose=False):
 
+        self.loss = loss
         self.n_factors = n_factors
         self.n_epochs = n_epochs
         self.biased = biased
@@ -238,23 +239,30 @@ class SVD(AlgoBase):
 
                 # update biases
                 if self.biased:
-                    #  bu[u] += lr_bu * (err - reg_bu * bu[u])
-                    #  bi[i] += lr_bi * (err - reg_bi * bi[i])
-
-                    # MAE loss
-                    bu[u] += lr_bu * ((1 if err > 0 else (0 if err == 0 else -1)) - reg_bu * bu[u])
-                    bi[i] += lr_bi * ((1 if err > 0 else (0 if err == 0 else -1)) - reg_bi * bi[i])
+                    if self.loss == 'MSE':
+                        bu[u] += lr_bu * (err - reg_bu * bu[u])
+                        bi[i] += lr_bi * (err - reg_bi * bi[i])
+                    elif self.loss == 'MAE':
+                        bu[u] += lr_bu * ((1 if err > 0 else (0 if err == 0 else -1)) - reg_bu * bu[u])
+                        bi[i] += lr_bi * ((1 if err > 0 else (0 if err == 0 else -1)) - reg_bi * bi[i])
+                    elif self.loss == 'MAPE':
+                        bu[u] += lr_bu * ((1 if err > 0 else (0 if err == 0 else -1)) / r - reg_bu * bu[u])
+                        bi[i] += lr_bi * ((1 if err > 0 else (0 if err == 0 else -1)) / r - reg_bi * bi[i])
 
                 # update factors
                 for f in range(self.n_factors):
                     puf = pu[u, f]
                     qif = qi[i, f]
-                    #  pu[u, f] += lr_pu * (err * qif - reg_pu * puf)
-                    #  qi[i, f] += lr_qi * (err * puf - reg_qi * qif)
 
-                    # MAE loss
-                    pu[u, f] += lr_pu * ((1 if err > 0 else (0 if err == 0 else -1)) * qif - reg_pu * puf)
-                    qi[i, f] += lr_qi * ((1 if err > 0 else (0 if err == 0 else -1)) * puf - reg_qi * qif)
+                    if self.loss == 'MSE':
+                        pu[u, f] += lr_pu * (err * qif - reg_pu * puf)
+                        qi[i, f] += lr_qi * (err * puf - reg_qi * qif)
+                    elif self.loss == 'MAE':
+                        pu[u, f] += lr_pu * ((1 if err > 0 else (0 if err == 0 else -1)) * qif - reg_pu * puf)
+                        qi[i, f] += lr_qi * ((1 if err > 0 else (0 if err == 0 else -1)) * puf - reg_qi * qif)
+                    elif self.loss == 'MAPE':
+                        pu[u, f] += lr_pu * ((1 if err > 0 else (0 if err == 0 else -1)) / r * qif - reg_pu * puf)
+                        qi[i, f] += lr_qi * ((1 if err > 0 else (0 if err == 0 else -1)) / r * puf - reg_qi * qif)
 
         self.bu = bu
         self.bi = bi
@@ -375,11 +383,12 @@ class SVDpp(AlgoBase):
             exists if ``fit()`` has been called)
     """
 
-    def __init__(self, n_factors=20, n_epochs=20, init_mean=0, init_std_dev=.1,
+    def __init__(self, loss='MSE', n_factors=20, n_epochs=20, init_mean=0, init_std_dev=.1,
                  lr_all=.007, reg_all=.02, lr_bu=None, lr_bi=None, lr_pu=None,
                  lr_qi=None, lr_yj=None, reg_bu=None, reg_bi=None, reg_pu=None,
                  reg_qi=None, reg_yj=None, random_state=None, verbose=False):
 
+        self.loss = loss
         self.n_factors = n_factors
         self.n_epochs = n_epochs
         self.init_mean = init_mean
@@ -471,22 +480,36 @@ class SVDpp(AlgoBase):
 
                 err = r - (global_mean + bu[u] + bi[i] + dot)
 
-                # update biases
-                #  bu[u] += lr_bu * (err - reg_bu * bu[u])
-                #  bi[i] += lr_bi * (err - reg_bi * bi[i])
-
-                # MAE loss
-                bu[u] += lr_bu * ((1 if err > 0 else (0 if err == 0 else -1)) - reg_bu * bu[u])
-                bi[i] += lr_bi * ((1 if err > 0 else (0 if err == 0 else -1)) - reg_bi * bi[i])
+                if self.loss == 'MSE':
+                    bu[u] += lr_bu * (err - reg_bu * bu[u])
+                    bi[i] += lr_bi * (err - reg_bi * bi[i])
+                elif self.loss == 'MAE':
+                    bu[u] += lr_bu * ((1 if err > 0 else (0 if err == 0 else -1)) - reg_bu * bu[u])
+                    bi[i] += lr_bi * ((1 if err > 0 else (0 if err == 0 else -1)) - reg_bi * bi[i])
+                elif self.loss == 'MAPE':
+                    bu[u] += lr_bu * ((1 if err > 0 else (0 if err == 0 else -1)) / r - reg_bu * bu[u])
+                    bi[i] += lr_bi * ((1 if err > 0 else (0 if err == 0 else -1)) / r - reg_bi * bi[i])
 
                 # update factors
                 for f in range(self.n_factors):
                     puf = pu[u, f]
                     qif = qi[i, f]
-                    pu[u, f] += lr_pu * ((1 if err > 0 else (0 if err == 0 else -1)) * qif - reg_pu * puf)
-                    qi[i, f] += lr_qi * ((1 if err > 0 else (0 if err == 0 else -1)) * (puf + u_impl_fdb[f]) - reg_qi * qif)
-                    for j in Iu:
-                        yj[j, f] += lr_yj * ((1 if err > 0 else (0 if err == 0 else -1)) * qif / sqrt_Iu - reg_yj * yj[j, f])
+                    
+                    if self.loss == 'MSE':
+                        pu[u, f] += lr_pu * (err * qif - reg_pu * puf)
+                        qi[i, f] += lr_qi * (err * (puf + u_impl_fdb[f]) - reg_qi * qif)
+                        for j in Iu:
+                            yj[j, f] += lr_yj * (err * qif / sqrt_Iu - reg_yj * yj[j, f])
+                    elif self.loss =='MAE':
+                        pu[u, f] += lr_pu * ((1 if err > 0 else (0 if err == 0 else -1)) * qif - reg_pu * puf)
+                        qi[i, f] += lr_qi * ((1 if err > 0 else (0 if err == 0 else -1)) * (puf + u_impl_fdb[f]) - reg_qi * qif)
+                        for j in Iu:
+                            yj[j, f] += lr_yj * ((1 if err > 0 else (0 if err == 0 else -1)) * qif / sqrt_Iu - reg_yj * yj[j, f])
+                    elif self.loss == 'MAPE:
+                        pu[u, f] += lr_pu * ((1 if err > 0 else (0 if err == 0 else -1)) / r * qif - reg_pu * puf)
+                        qi[i, f] += lr_qi * ((1 if err > 0 else (0 if err == 0 else -1)) / r * (puf + u_impl_fdb[f]) - reg_qi * qif)
+                        for j in Iu:
+                            yj[j, f] += lr_yj * ((1 if err > 0 else (0 if err == 0 else -1)) / r * qif / sqrt_Iu - reg_yj * yj[j, f])
 
         self.bu = bu
         self.bi = bi
