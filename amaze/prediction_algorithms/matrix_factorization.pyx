@@ -505,7 +505,7 @@ class SVDpp(AlgoBase):
                         qi[i, f] += lr_qi * ((1 if err > 0 else (0 if err == 0 else -1)) * (puf + u_impl_fdb[f]) - reg_qi * qif)
                         for j in Iu:
                             yj[j, f] += lr_yj * ((1 if err > 0 else (0 if err == 0 else -1)) * qif / sqrt_Iu - reg_yj * yj[j, f])
-                    elif self.loss == 'MAPE:
+                    elif self.loss == 'MAPE':
                         pu[u, f] += lr_pu * ((1 if err > 0 else (0 if err == 0 else -1)) / r * qif - reg_pu * puf)
                         qi[i, f] += lr_qi * ((1 if err > 0 else (0 if err == 0 else -1)) / r * (puf + u_impl_fdb[f]) - reg_qi * qif)
                         for j in Iu:
