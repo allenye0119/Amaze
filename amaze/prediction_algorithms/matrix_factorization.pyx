@@ -383,7 +383,7 @@ class SVDpp(AlgoBase):
             exists if ``fit()`` has been called)
     """
 
-    def __init__(self, loss='MSE', n_factors=20, n_epochs=20, init_mean=0, init_std_dev=.1,
+    def __init__(self, loss='MAE', n_factors=20, n_epochs=20, init_mean=0, init_std_dev=.1,
                  lr_all=.007, reg_all=.02, lr_bu=None, lr_bi=None, lr_pu=None,
                  lr_qi=None, lr_yj=None, reg_bu=None, reg_bi=None, reg_pu=None,
                  reg_qi=None, reg_yj=None, random_state=None, verbose=False):
