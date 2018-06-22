@@ -18,7 +18,7 @@ class BaseSearchCV(with_metaclass(ABCMeta)):
     """Base class for hyper parameter search with cross-validation."""
 
     @abstractmethod
-    def __init__(self, algo_class, measures=['rmse', 'mae'], cv=None,
+    def __init__(self, algo_class, measures=['rmse', 'mae', 'mape'], cv=None,
                  refit=False, return_train_measures=False, n_jobs=1,
                  pre_dispatch='2*n_jobs', joblib_verbose=0):
 
@@ -148,7 +148,7 @@ class BaseSearchCV(with_metaclass(ABCMeta)):
                 len(indices)) + 1  # sklearn starts rankings at 1 as well.
 
             # set best_index, and best_xxxx attributes
-            if m in ('mae', 'rmse'):
+            if m in ('mae', 'rmse', 'mape'):
                 best_index[m] = mean_test_measures.argmin()
             elif m in ('fcp',):
                 best_index[m] = mean_test_measures.argmax()
@@ -294,7 +294,7 @@ class GridSearchCV(BaseSearchCV):
             into a pandas `DataFrame` (see :ref:`example
             <cv_results_example>`).
     """
-    def __init__(self, algo_class, param_grid, measures=['rmse', 'mae'],
+    def __init__(self, algo_class, param_grid, measures=['rmse', 'mae', 'mape'],
                  cv=None, refit=False, return_train_measures=False, n_jobs=1,
                  pre_dispatch='2*n_jobs', joblib_verbose=0):
 
@@ -411,7 +411,7 @@ class RandomizedSearchCV(BaseSearchCV):
             <cv_results_example>`).
     """
     def __init__(self, algo_class, param_distributions, n_iter=10,
-                 measures=['rmse', 'mae'], cv=None, refit=False,
+                 measures=['rmse', 'mae', 'mape'], cv=None, refit=False,
                  return_train_measures=False, n_jobs=1,
                  pre_dispatch='2*n_jobs', random_state=None, joblib_verbose=0):
 
